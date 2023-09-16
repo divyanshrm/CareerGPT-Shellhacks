@@ -1,0 +1,26 @@
+{% extends "base.html" %}  <!-- Adjust this line to your template structure -->
+
+{% block content %}
+    {% if has_uploaded_resume %}
+    <h2>Update</h2>
+    {% else %}
+    <h2>Upload</h2>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">
+            {% if has_uploaded_resume %}
+                Update
+            {% else %}
+                Upload
+            {% endif %}
+        </button>
+    </form>
+
+    {% if has_uploaded_resume %}
+    <p>User has uploaded a resume.</p>
+    {% else %}
+    <p>User has not uploaded a resume.</p>
+{% endif %}
+{% endblock %}
