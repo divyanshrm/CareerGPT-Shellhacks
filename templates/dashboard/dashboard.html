@@ -9,17 +9,33 @@
 <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %} ">
 {% endblock %}
 {% block content %}
-{% if roles %}
+
 <div class="dash-main">
-    <h2>Suggested Job Roles:</h2>
-    <ul>
+    {% if roles %}
+        <h2>Your roles:</h2>
+        <ul>
         {% for role in roles %}
-        <li>{{ role }}</li>
+            <li>{{ role }}</li>
         {% endfor %}
+        </ul>
+
+
+    <!-- Add the new Job Role Form -->
+    <h3>Add or Update a Job Role</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ role_form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    {%if skills %}
+    {% for skill in skills %}
+        <li>{{ skill }}</li>
+    {% endfor %}
     </ul>
-    {% elif message %}
-    <p>{{ message }}</p>
     {% endif %}
+    {% else %}
+    <h2>{{ message }}</h2>
+{% endif %}
 </div>
 
 {% endblock content %}

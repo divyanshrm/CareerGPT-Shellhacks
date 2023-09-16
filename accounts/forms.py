@@ -11,6 +11,7 @@ class UserCreateForm(UserCreationForm):
         
         # Customize the placeholders for the fields
         self.fields['username'].widget.attrs['placeholder'] = 'Enter your desired username'
+        
         self.fields['email'].widget.attrs['placeholder'] = 'Enter your primary email address'
         self.fields['password1'].widget.attrs['placeholder'] = 'Enter your password'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm your password'

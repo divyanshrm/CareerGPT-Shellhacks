@@ -42,6 +42,7 @@ def upload_resume(request):
                 # Save or update the parsed text to the Resume model
                 resume, created = models.Resume.objects.get_or_create(user=request.user)
                 resume.text_content = text_content
+                models.JobRole.objects.filter(resume=resume).delete()
                 resume.save()
 
                 messages.success(request, 'Resume uploaded successfully!')
