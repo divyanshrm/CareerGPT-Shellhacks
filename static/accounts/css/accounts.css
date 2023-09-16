@@ -1,5 +1,5 @@
 .signup-container {
-    margin-top: 200px;
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
 
 .signup-contents {
     height: fit-content;
-    width: 30vw;
+    width: 35vw;
     border-radius: 10px;
     box-shadow: 10px 15px 28px 10px rgba(0, 0, 0, 0.1);
 }
@@ -16,11 +16,11 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.5rem;
     font-weight: 1000;
-    background-color: #7e5934;
+    background-color: #4f351b;
     color: white;
     width: 100%;
     border-radius: 10px 10px 0px 0px;
-    padding: 15px;
+    padding: 20px;
 }
 
 .signup-form-container {
@@ -30,7 +30,103 @@
 
 label {
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 700;
+    margin-left: 10px;
+    padding-bottom: 10px;
 }
 
-input {}
+input {
+    padding: 10px;
+    margin-left: 10px;
+    overflow: hidden;
+    background-color: transparent;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    border: solid 1px black;
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input:focus {
+    background-color: rgba(255, 255, 255, 0.525);
+    border: none;
+    outline: none;
+}
+
+textarea {
+    padding: 10px;
+    margin: 20px;
+    overflow: hidden;
+    background-color: transparent;
+    border-radius: 10px;
+    height: 25px;
+    width: 500px;
+    display: flex;
+    border: solid 1px black;
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+    height: 200px
+}
+
+textarea:focus {
+    background-color: rgba(255, 255, 255, 0.525);
+    border: none;
+    outline: none;
+}
+
+.mybutton {
+    margin-top: 10px;
+    height: 50px;
+    width: 100px;
+    font-size: 21px;
+    text-align: center;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
+    box-shadow: 10px 15px 28px 0px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.544);
+    display: inline;
+    padding: 0px;
+}
+
+.mybutton:hover {
+    background-color: black;
+    color: white;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.helptext {
+    font-style: italic;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.errorlist {
+    font-style: italic;
+    padding-left: 20px;
+    color: red;
+    list-style: none;
+}
+
+.login-container {
+
+    margin-top: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}

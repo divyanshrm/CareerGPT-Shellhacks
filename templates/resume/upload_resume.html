@@ -1,26 +1,46 @@
-{% extends "base.html" %}  <!-- Adjust this line to your template structure -->
-
+{% extends 'base.html' %}
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+{% block headblock %}
+<link rel="stylesheet" href="{% static 'resume/css/resume.css' %} ">
+{% endblock %}
 {% block content %}
-    {% if has_uploaded_resume %}
-    <h2>Update</h2>
-    {% else %}
-    <h2>Upload</h2>
-    {% endif %}
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">
-            {% if has_uploaded_resume %}
-                Update
-            {% else %}
-                Upload
-            {% endif %}
-        </button>
-    </form>
 
-    {% if has_uploaded_resume %}
-    <p>User has uploaded a resume.</p>
-    {% else %}
-    <p>User has not uploaded a resume.</p>
+<div class="resume-container">
+    <div class="resume-div">
+        <div class="page-title">
+
+            {% if has_uploaded_resume %}
+            Update Resume
+            {% else %}
+            Upload Resume
+            {% endif %}
+        </div>
+        <div class="resume-form-container">
+            {% if has_uploaded_resume %}
+            <p>Check the Dashboard after updating Resume for latest results</p>
+            {% else %}
+            <p class="label">Upload Resume to view Dashboard</p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="button-div">
+                    <button class="mybutton" type="submit">
+                        {% if has_uploaded_resume %}
+                        Update
+                        {% else %}
+                        Upload
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
 {% endif %}
 {% endblock %}

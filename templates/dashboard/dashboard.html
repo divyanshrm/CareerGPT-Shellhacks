@@ -1,23 +1,25 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+{% block headblock %}
+<link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %} ">
+{% endblock %}
 {% block content %}
-
 {% if roles %}
+<div class="dash-main">
     <h2>Suggested Job Roles:</h2>
     <ul>
-    {% for role in roles %}
+        {% for role in roles %}
         <li>{{ role }}</li>
-    {% endfor %}
+        {% endfor %}
     </ul>
-{% elif message %}
+    {% elif message %}
     <p>{{ message }}</p>
-{% endif %}
-
+    {% endif %}
+</div>
 
 {% endblock content %}
-
-
-
-
-
-
