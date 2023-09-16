@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
 {% block headblock %}
-<link rel="stylesheet" href="{% static 'accounts/css/signup.css' %} ">
+<link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %} ">
 {% endblock %}
 {% block content %}
 
@@ -16,11 +21,11 @@
                 {{form.as_p}}
                 <br>
                 <div class="button-class">
-                    <input class="mybutton" type="submit"  value="Sign Up">
+                    <input class="mybutton" type="submit" value="Sign Up">
                 </div>
             </form>
         </div>
-        
+
     </div>
 </div>
 

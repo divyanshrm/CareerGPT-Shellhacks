@@ -1,0 +1,36 @@
+.signup-container {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-contents {
+    height: fit-content;
+    width: 30vw;
+    border-radius: 10px;
+    box-shadow: 10px 15px 28px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 1000;
+    background-color: #7e5934;
+    color: white;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    padding: 15px;
+}
+
+.signup-form-container {
+    padding: 20px;
+    text-align: left;
+}
+
+label {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+input {}

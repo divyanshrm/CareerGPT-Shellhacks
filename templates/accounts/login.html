@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block headblock %}
-<link rel="stylesheet" href="{% static 'accounts/css/signup.css' %} ">
+<link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %} ">
 {% endblock %}
 {% block content %}
 
@@ -13,7 +13,7 @@
         <div class="signup-form-container">
             <form method="POST">
                 {% csrf_token %}
-                {{  form.as_p }}
+                {{ form.as_p }}
 
 
                 <div class="button-class">
@@ -21,7 +21,7 @@
                 </div>
             </form>
         </div>
-        
+
     </div>
 </div>
 
