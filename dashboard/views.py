@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 import openai
 import re
@@ -19,24 +20,38 @@ class chatgptapi:
         out = re.findall(self.responsepattern,response)
         return out #dtype = list, list of all values within square braces
 
-
+@login_required
 def main_board(request):
     user_resume = models.Resume.objects.filter(user=request.user).first()
 
-# Check if the user's resume exists
+    # Check if the user's resume exists
     if user_resume:
-        # Initialize chatgptapi class
-        chat_api = chatgptapi()
+        
+        # Check if job roles exist in the database for this user's resume
+        existing_roles = user_resume.job_roles.all()
 
-        # Generate response using the user's resume text
-        gpt_response = chat_api.gen_response(user_resume.text_content)
+        if existing_roles:
+            roles = [role.role for role in existing_roles]  # Extract job roles from the database entries
+        else:
+            # If roles don't exist, generate using GPT-3
+            chat_api = chatgptapi()
+            prompt = user_resume.text_content + ". Use this to suggest the top 3 job roles for this user. Reply with the job roles in python list format. Example - [Full stack developer] , [machine learning engineer], [Computer Vision Researcher]: "
+            
+            # Generate response using the user's resume text
+            gpt_response = chat_api.gen_response(prompt)
+            
+            # Parse the GPT-3 response
+            roles = chat_api.parse_gpt_response(gpt_response)
 
-        # Optionally parse the GPT-3 response
-        parsed_response = chat_api.parse_gpt_response(gpt_response)
+            # Save the generated roles to the database
+            for role_name in roles:
+                models.JobRole.objects.create(resume=user_resume, role=role_name)
 
-        return render(request, 'dashboard/dashboard.html', {'response': parsed_response})
+        return render(request, 'dashboard/dashboard.html', {'roles': roles})
     else:
         # Handle case if the user has not uploaded a resume yet
         return render(request, 'dashboard/dashboard.html', {'message': "Please upload a resume first."})
+    
+
 
 

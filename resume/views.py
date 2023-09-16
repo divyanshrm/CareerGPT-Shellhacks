@@ -22,8 +22,6 @@ class pdf_to_text:
 
         return text
 
-
-
 @login_required
 def upload_resume(request):
     if request.method == 'POST':
@@ -39,7 +37,8 @@ def upload_resume(request):
                 # Parse the saved PDF file to text
                 parser = pdf_to_text('temp_pdf_file.pdf')
                 text_content = parser.extract_text_from_pdf()
-                print(text_content)
+                
+                
                 # Save or update the parsed text to the Resume model
                 resume, created = models.Resume.objects.get_or_create(user=request.user)
                 resume.text_content = text_content

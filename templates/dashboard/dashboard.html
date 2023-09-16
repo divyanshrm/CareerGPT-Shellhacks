@@ -2,14 +2,16 @@
 
 {% block content %}
 
-{% if response %}
-
-<h1>{{response}}</h1>
-{% else %}
-
-<h2> {{message}}</h2>
+{% if roles %}
+    <h2>Suggested Job Roles:</h2>
+    <ul>
+    {% for role in roles %}
+        <li>{{ role }}</li>
+    {% endfor %}
+    </ul>
+{% elif message %}
+    <p>{{ message }}</p>
 {% endif %}
-
 
 
 {% endblock content %}
