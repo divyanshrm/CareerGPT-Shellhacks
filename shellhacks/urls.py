@@ -29,4 +29,5 @@ urlpatterns = [
     re_path('^test/$',views.TestPage.as_view(),name='test'),
     re_path('^thanks/$',views.ThanksPage.as_view(),name='thanks'),
     path('resume/', include('resume.urls')),
+    path('dashboard/', include('dashboard.urls',namespace='dashboard')),
 ]
