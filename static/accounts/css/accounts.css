@@ -47,12 +47,15 @@ input {
     border: solid 1px black;
     font-size: large;
     font-family: 'Montserrat', sans-serif;
+    background-color: #f0ddc9;
+
 }
 
 input:focus {
     background-color: rgba(255, 255, 255, 0.525);
     border: none;
     outline: none;
+    background-color: #f0ddc9;
 }
 
 textarea {
@@ -87,7 +90,7 @@ textarea:focus {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 900;
     box-shadow: 10px 15px 28px 0px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.544);
+    background-color: #f0ddc9;
     display: inline;
     padding: 0px;
 }
