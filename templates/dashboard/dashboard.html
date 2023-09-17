@@ -11,45 +11,48 @@
 {% block content %}
 
 <div class="dash-main">
-    {% if roles %}
-        <h2>Your roles:</h2>
+    <div class="dash-title">
         <ul>
-        {% for role in roles %}
-            <li>{{ role }}</li>
+            <li>Best roles for you</li>
+        </ul>
+    </div>
+    <div class="roles">
+        {% if roles %}
+        <div class='role-main'>
+            {% for role in roles %}
+            <div class='{% if forloop.last %}each-role2{% else %}each-role{% endif %}'>
+                <p class='role'>
+                    {{ role }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="skill-gap">
+        <!-- Add the new Job Role Form -->
+        <div class="dash-title">
+            <ul>
+                <li>Skill Gap Analysis: Bridging the Path to Success</li>
+            </ul>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ role_form.as_p }}
+            <div class="button-div">
+                <input type="submit" value="Find Gap">
+            </div>
+        </form>
+        {%if skills %}
+        {% for skill in skills %}
+        <li>{{ skill }}</li>
         {% endfor %}
         </ul>
-
-
-    <!-- Add the new Job Role Form -->
-    <h3>Add or Update a Job Role</h3>
-    <form method="post">
-        {% csrf_token %}
-        {{ role_form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
-    {%if skills %}
-    
-    <form method="post" action="{% url 'dashboard:dashboard' %}" id="skillForm">
-        {% csrf_token %}
-        <input type="hidden" name="clicked_skill" id="hiddenSkillInput">
-        {% for skill in skills %}
-            <li><a href="#" onclick="submitSkillForm('{{ skill }}')">{{ skill }}</a></li>
-        {% endfor %}
-    </form>
-    <script>
-        function submitSkillForm(skill) {
-            document.getElementById("hiddenSkillInput").value = skill;
-            document.getElementById("skillForm").submit();
-        }
-    </script>
-    </ul>
-    {% if skill_description %}
-    <p>{{ skill_description }}</p>
-    {% endif %}
-    {% endif %}
-    {% else %}
-    <h2>{{ message }}</h2>
-{% endif %}
+        {% endif %}
+        {% else %}
+        <h2>{{ message }}</h2>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock content %}
