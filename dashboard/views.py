@@ -167,3 +167,37 @@ def courses(request,skill_name):
         
     else:
         return render(request, 'dashboard/dashboard', {'message': "Please upload a resume first."})
+    
+
+from django.shortcuts import render, redirect
+class match_split:
+    def __init__(self):
+        pass
+    def get_separate(self,data):
+        entry = data[0:data.find("Weaknesses")] 
+        adv = data[data.find("Weaknesses"):]
+        return entry,adv
+
+def job_description_view(request):
+    user_resume = models.Resume.objects.filter(user=request.user).first()
+    if user_resume:
+        if request.method == "POST":
+            form = forms.JobDescriptionForm(request.POST)
+            if form.is_valid():
+                # Extract job description and perform your operations here
+                job_description = form.cleaned_data['description']
+                chat_api = chatgptapi()
+                prompt=user_resume.text_content+" "+"Analyse my resume and give strengths and weaknesses with regards to the following job description in 100 words. "+job_description+"."
+                gpt_response = chat_api.gen_response(prompt)
+                m_s=match_split()
+                st,wk=m_s.get_separate(gpt_response)
+                # ... perform some operations on the job description ...
+                
+                # Redirect or render a template with results or a success message
+                return render(request, 'dashboard/match.html', {'st': st,'wk':wk})  # assuming you have a URL named 'success_page'
+        else:
+            form = forms.JobDescriptionForm()
+        return render(request, 'dashboard/match.html', {'form': form})
+    else:
+        return render(request, 'dashboard/dashboard', {'message': "Please upload a resume first."})
+    

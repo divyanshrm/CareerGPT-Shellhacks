@@ -1,0 +1,17 @@
+{% extends "base.html" %}  <!-- Assuming you have a base.html for consistent layout -->
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+
+</form>
+
+{% if st %}
+<h2>{{st}}</h2>
+
+<h2>{{wk}}</h2>
+{%endif%}
+{% endblock %}
