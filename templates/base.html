@@ -22,10 +22,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Roboto+Condensed:wght@300;400&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/master.css' %}">
   {% block headblock %}
   {% endblock %}
-
+  <link rel="stylesheet" href="{% static 'css/master.css' %}">
 </head>
 
 <body class="body-whole">
@@ -42,8 +41,10 @@
         <form method="post" action="{% url 'dashboard:ask' %}">
           {% csrf_token %}
           <div class="ask">
-            <input type="text" name="ask-me-anything" placeholder="Ask me Anything" required>
-            <button type="submit" name="my_button" value="ButtonValue">Go</button>
+            <input id="ask-text-input" type="text" name="ask-me-anything" placeholder="Ask me Anything" required>
+            <button class="ask-button" type="submit" name="my_button" value="ButtonValue">
+              GO
+            </button>
           </div>
         </form>
 

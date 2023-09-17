@@ -68,6 +68,29 @@ label {
 
 #id_resume_file {
     background-color: #f9ebdd;
-    width: 60%;
     margin-right: 10px;
+    width: 90%;
+}
+
+input {
+    padding: 10px;
+    margin-left: 20px;
+    overflow: hidden;
+    background-color: transparent;
+    border-radius: 10px;
+    height: 50px;
+    width: 60%;
+    display: flex;
+    border: solid 1px black;
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+input:focus {
+    background-color: rgba(255, 255, 255, 0.525);
+    border: none;
+    outline: none;
+    background-color: #f0ddc9;
 }

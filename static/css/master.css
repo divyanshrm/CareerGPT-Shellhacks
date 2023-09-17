@@ -76,20 +76,22 @@ nav {
     color: green;
 }
 
-.button {
+.ask-button {
+    width: 67px;
     height: 50px;
-    width: 150px;
     font-size: 21px;
     vertical-align: middle;
+    background-color: transparent;
     border: none;
     border-radius: 30px;
-
+    border: solid 1px black;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 900;
     box-shadow: 10px 15px 28px 0px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
 }
 
-button:hover {
+.ask-button:hover {
     background-color: black;
     color: white;
 }
@@ -107,9 +109,15 @@ button:hover {
     color: #563c22;
 }
 
-input {
+.ask {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 50px;
+}
+
+#ask-text-input {
     padding: 10px;
-    margin-left: 10px;
     overflow: hidden;
     background-color: transparent;
     border-radius: 10px;
@@ -120,18 +128,13 @@ input {
     font-size: large;
     font-family: 'Montserrat', sans-serif;
     background-color: #f0ddc9;
-
+    flex-direction: column;
+    justify-content: center;
+    margin: 0%;
 }
 
-input:focus {
-    background-color: rgba(255, 255, 255, 0.525);
+#ask-text-input:focus {
+    background-color: white;
     border: none;
     outline: none;
-    background-color: #f0ddc9;
-}
-
-.ask {
-    display: flex;
-    flex-direction: row;
-
 }

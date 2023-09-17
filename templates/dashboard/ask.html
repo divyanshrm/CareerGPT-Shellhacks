@@ -1,8 +1,23 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+{% block headblock %}
+<link rel="stylesheet" href="{% static 'dashboard/css/ask.css' %} ">
+{% endblock %}
 {% block content %}
 
-    {% if gpt %}
-    {{gpt}}
-    {% endif %}
+<div class="ask-response-container">
+    <div class="page-title">
+        Here is my response for your question...
+    </div>
+    <div class="ask-response">
+        {% if gpt %}
+        {{gpt}}
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
