@@ -22,6 +22,7 @@ class SignUp(CreateView):
     form_class=forms.UserCreateForm
     success_url=reverse_lazy('login')
     template_name='accounts/signup.html'
+    
     def form_valid(self, form):
         # Check if the email already exists
         email = form.cleaned_data.get('email')
@@ -37,3 +38,6 @@ class TestPage(TemplateView):
 
 class ThanksPage(TemplateView):
     template_name='thanks.html'
+
+class About(TemplateView):
+    template_name='about.html'

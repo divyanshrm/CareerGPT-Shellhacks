@@ -97,7 +97,7 @@ def enhance(request):
         if request.method == "POST":
             form = forms.TextInputForm(request.POST)
             if form.is_valid():
-                entered_text = form.cleaned_data['text']
+                entered_text = form.cleaned_data['Section']
                 role=form.cleaned_data['role_company']
                 chat_api = chatgptapi()
                 if len(role)>0:

@@ -32,4 +32,5 @@ urlpatterns = [
     re_path('^thanks/$',views.ThanksPage.as_view(),name='thanks'),
     path('resume/', include('resume.urls')),
     path('dashboard/', include('dashboard.urls',namespace='dashboard')),
+    path('about/',acc_views.About.as_view(),name='about')
 ]

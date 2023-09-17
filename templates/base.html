@@ -57,11 +57,13 @@
         <a href={% url "dashboard:match" %}>Match</a>
         <a href={% url "dashboard:dashboard" %}>Dashboard</a>
         <a href={% url "resume:upload_resume" %}>Resume</a>
+        <a href={% url "about" %}>About</a>
         <a href={% url "accounts:logout" %}>Logout</a>
         {% else %}
 
         <a href={% url "accounts:login" %}>Login</a>
         <a href={% url "accounts:signup" %}>Signup</a>
+        <a href={% url "about" %}>About</a>
         {%endif%}
       </div>
     </div>
