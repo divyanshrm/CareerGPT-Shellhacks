@@ -16,7 +16,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <title>CareerGPT</title>
-
+  <link rel="icon" href="{% static 'logo/logo.png' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -41,8 +41,10 @@
         {% if user.is_authenticated %}
         <form method="post" action="{% url 'dashboard:ask' %}">
           {% csrf_token %}
-          <input type="text" name="ask-me-anything" placeholder="Ask me Anything" required>
-          <button type="submit" name="my_button" value="ButtonValue">Go</button>
+          <div class="ask">
+            <input type="text" name="ask-me-anything" placeholder="Ask me Anything" required>
+            <button type="submit" name="my_button" value="ButtonValue">Go</button>
+          </div>
         </form>
 
         <a href={% url "dashboard:enhance" %}>Enhance</a>
