@@ -19,11 +19,13 @@ from django.urls import re_path
 from accounts import views
 from django.urls import include
 from django.conf.urls.static import static
+from accounts import views as acc_views
+from django.views.generic.base import RedirectView
 
 app_name='myreddit'
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.HomePage.as_view(), name='home'),
+    path('', RedirectView.as_view(pattern_name='accounts:login'), name='home'),
     re_path('^accounts/',include('accounts.urls',namespace='accounts')),
     re_path('^accounts/',include('django.contrib.auth.urls')),
     re_path('^test/$',views.TestPage.as_view(),name='test'),

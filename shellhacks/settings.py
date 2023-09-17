@@ -127,5 +127,5 @@ STATICFILES_DIRS=[STATIC_DIR,]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL='test'
-LOGOUT_REDIRECT_URL='thanks'
+LOGIN_REDIRECT_URL='dashboard:dashboard'
+LOGOUT_REDIRECT_URL='accounts:login'

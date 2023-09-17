@@ -137,6 +137,16 @@ def ask(request):
         return render(request, 'dashboard/ask.html')
     else:
         return render(request, 'dashboard/enhance.html', {'message': "Please upload a resume first."})
+
+class courses_split:
+    def __init__(self):
+        pass
+    def get_separate(self,data):
+        entry = data[0:data.find("Intermediate Courses")] 
+        intermediate = data[data.find("Intermediate Courses"):data.find("Advanced Courses")]
+        adv = data[data.find("Advanced Courses"):]
+        return entry,intermediate,adv
+
 @login_required
 def courses(request,skill_name):
     user_resume = models.Resume.objects.filter(user=request.user).first()
@@ -144,9 +154,12 @@ def courses(request,skill_name):
     if user_resume:
 
         chat_api = chatgptapi()
-        prompt="List 2 Entry Level Courses, 2 Intermediate and 2 Advanced Online Course names with their professors or company for the following skill : "+skill_name
+        prompt="List 2 Entry Level Courses, 2 Intermediate and 2 Advanced Online Course names with their instructors or company for the following skill : "+skill_name
         gpt_response = chat_api.gen_response(prompt)
-        return render(request, 'dashboard/courses.html', {'course': skill_name, 'courses': gpt_response}) 
+        c_s=courses_split()
+        entry,inter,adv=c_s.get_separate(gpt_response)
+
+        return render(request, 'dashboard/courses.html', {'course': skill_name, 'entry': entry,'inter':inter,'adv':adv}) 
             
                 # This will print the value entered in the text input
 
