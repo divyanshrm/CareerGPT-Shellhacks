@@ -56,7 +56,7 @@ git clone https://github.com/vaishu98/shellhacks.git
 It's a good practice to create a virtual environment to isolate your project's dependencies. Navigate to the project directory and create a virtual environment:
 
 ```bash
-cd CareerGPT
+cd shellhacks
 python -m venv venv
 ```
 
