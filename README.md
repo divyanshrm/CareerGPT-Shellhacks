@@ -93,9 +93,9 @@ We welcome contributions from the open-source community. If you'd like to contri
 
 CareerGPT is made possible by the contributions of talented individuals from the open-source community. We'd like to acknowledge and thank the following contributors for their valuable input and dedication to making CareerGPT better:
 
-- [Vaishnavi Chilakamarthi](https://github.com/vaishnavi-ch)
-- [Divyansh Singh](https://github.com/divyansh-singh)
-- [Rahul Porwal](https://github.com/rahul-porwal)
+- [Vaishnavi Chilakamarthi](https://github.com/vaishu98)
+- [Divyansh Singh](https://github.com/divyanshrm)
+- [Rahul Porwal](https://github.com/rahulporwal73)
 
 We appreciate their efforts in enhancing CareerGPT and helping us provide a valuable resource for career advancement.
 
