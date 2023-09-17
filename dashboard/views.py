@@ -34,7 +34,7 @@ def main_board(request):
             skill_description = chat_api.parse_gpt_response(gpt_response) # adjust parsing method if necessary
             context['skill_description'] = skill_description
             return render(request, 'dashboard/dashboard.html', context)
-        user_resume = models.Resume.objects.filter(user=request.user).first()
+    user_resume = models.Resume.objects.filter(user=request.user).first()
     
     # Check if the user's resume exists
     if user_resume:
