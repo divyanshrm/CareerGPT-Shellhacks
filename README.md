@@ -48,7 +48,7 @@ Before you begin, ensure you have the following prerequisites installed on your 
 Clone the CareerGPT project repository to your local machine using Git:
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/vaishu98/shellhacks.git
 ```
 
 ### 2. Create a Virtual Environment (Optional but recommended)
