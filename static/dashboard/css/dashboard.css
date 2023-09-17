@@ -165,3 +165,46 @@ input[type=submit]:hover {
     flex-direction: column;
     align-items: center;
 }
+
+.skill-button {
+    width: fit-content;
+    background-color: #4f351b;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 10px;
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+    margin: 20px;
+}
+
+.skill-button:hover {
+    background-color: black;
+    color: #f0ddc9;
+}
+
+.skills-upgrade-div {
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+.dash-subtitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 1000;
+    color: #4f351b;
+    width: 60%;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.skills-upgrade-container {
+    display: flex;
+    flex-direction: row;
+}

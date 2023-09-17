@@ -1,17 +1,39 @@
-{% extends "base.html" %}  <!-- Assuming you have a base.html for consistent layout -->
-
+{% extends 'base.html' %}
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+{% block headblock %}
+<link rel="stylesheet" href="{% static 'dashboard/css/match.css' %} ">
+{% endblock %}
 {% block content %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
+<div class="match-container">
+    <div class="page-title">
+        Assess Your Strengths and Weaknesses in Alignment with the Job Description
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-div">
+            <button class="mybutton" type="submit">Submit</button>
+        </div>
 
-</form>
+    </form>
 
-{% if st %}
-<h2>{{st}}</h2>
 
-<h2>{{wk}}</h2>
+    {% if st %}
+    <div class="ask-response"></div>
+    {{st}}
+    <br><br> <br>
+    {{wk}}
+</div>
 {%endif%}
+
+
+</div>
+
+
 {% endblock %}

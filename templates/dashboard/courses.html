@@ -1,8 +1,25 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+{% block headblock %}
+<link rel="stylesheet" href="{% static 'dashboard/css/ask.css' %} ">
+{% endblock %}
 {% block content %}
-    <h1>{{course}}</h1>
-    <h3>{{entry}}</h3>
-    <h3>{{inter}}</h3>
-    <h3>{{adv}}</h3>
+
+<div class="ask-response-container">
+    <div class="page-title">
+        {{course}}
+    </div>
+    <div class="ask-response">
+        <h3>{{entry}}</h3>
+        <br>
+        <h3>{{inter}}</h3>
+        <br>
+        <h3>{{adv}}</h3>
+    </div>
+</div>
 {% endblock %}

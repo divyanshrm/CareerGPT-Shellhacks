@@ -193,8 +193,9 @@ def job_description_view(request):
                 st,wk=m_s.get_separate(gpt_response)
                 # ... perform some operations on the job description ...
                 
+                form = forms.JobDescriptionForm()
                 # Redirect or render a template with results or a success message
-                return render(request, 'dashboard/match.html', {'st': st,'wk':wk})  # assuming you have a URL named 'success_page'
+                return render(request, 'dashboard/match.html', {'form': form, 'st': st,'wk':wk})  # assuming you have a URL named 'success_page'
         else:
             form = forms.JobDescriptionForm()
         return render(request, 'dashboard/match.html', {'form': form})

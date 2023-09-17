@@ -44,11 +44,23 @@
             </div>
         </form>
         {%if skills %}
+        <div class="skills-upgrade-div">
+
+        <div class="dash-subtitle">
+            Explore Your Learning Journey: Discover Resources to Master These Essential Skills. Each skill listed below is a valuable asset on your learning path. Click on each link to access a wealth of resources that will help you get started and become a proficient master of each skill.
+        </div>
+        <div class="skills-upgrade-container">
         {% for skill in skills %}
-        <a href="{% url "dashboard:courses" skill_name=skill %}"">{{ skill }}</a>
+        <a href="{% url "dashboard:courses" skill_name=skill %}"">
+        <div class="skill-button">
+        {{ skill }}
+        </div>
+        </a>
         {% endfor %}
         </ul>
+        </div>
         {% endif %}
+        </div>
         {% else %}
         <h2>{{ message }}</h2>
         {% endif %}
