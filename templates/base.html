@@ -16,7 +16,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <title>CareerGPT</title>
-  <link rel="icon" href="{% static 'logo/logo.png' %}">
+  <link rel="icon" href="{% static 'logo/finallogo.png' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -34,7 +34,7 @@
 
     <div class="nav-left">
       <div class="dp">
-        <img class="pic" src="{% static 'logo/logo2.png' %}">
+        <img class="pic" src="{% static 'logo/finallogo.png' %}">
       </div>
       <a class="navbar-brand" href="{% url 'home' %}">CareerGPT</a>
     </div>
@@ -53,10 +53,10 @@
           </div>
         </form>
 
+        <a href={% url "resume:upload_resume" %}>Resume</a>
+        <a href={% url "dashboard:dashboard" %}>Dashboard</a>
         <a href={% url "dashboard:enhance" %}>Enhance</a>
         <a href={% url "dashboard:match" %}>Match</a>
-        <a href={% url "dashboard:dashboard" %}>Dashboard</a>
-        <a href={% url "resume:upload_resume" %}>Resume</a>
         <a href={% url "about" %}>About</a>
         <a href={% url "accounts:logout" %}>Logout</a>
         {% else %}

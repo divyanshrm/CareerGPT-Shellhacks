@@ -1,1 +1,39 @@
-<h1>ABOUT PAGE</h1>
+{% extends 'base.html' %}
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+{% block headblock %}
+<link rel="stylesheet" href="{% static 'dashboard/css/about.css' %} ">
+
+
+<div class="about-container">
+    <div class="img">
+        <img class="log" src="{% static 'logo/finallogo.png' %}">
+    </div>
+    <div class="page-title">
+        CareerGPT   |   Powered by GPT 4
+    </div>
+    <div class="img2">
+        <img class="log" src="{% static 'logo/gpt4.jpeg' %}">
+    </div>
+    <div class="about-data">
+        Introducing CareerGPT, a groundbreaking project powered by the cutting-edge Generative AI, GPT-4. CareerGPT
+        revolutionizes the job search and career enhancement experience by allowing users to effortlessly upload their
+        resumes
+        and tap into a world of transformative features. Whether it's tailoring specific resume sections to match job
+        descriptions, discovering top job roles perfectly suited to their skills and aspirations, uncovering strengths
+        and
+        weaknesses in alignment with desired job positions, engaging in seamless, context-aware conversations with the
+        AI model,
+        or identifying skills required for their dream roles, CareerGPT empowers individuals to take their career
+        journeys to
+        new heights. With the added feature of accessing curated resources for upskilling, CareerGPT is your all-in-one
+        companion on the road to career success. Welcome to the future of career advancement, where AI meets your
+        aspirations
+        and guides you toward a brighter future.
+    </div>
+</div>
+{% endblock %}
