@@ -23,19 +23,9 @@ class chatgptapi:
 
 @login_required
 def main_board(request):
-    context={}
-    if request.method == 'POST':
-        clicked_skill = request.POST.get('clicked_skill', None)
-
-        if clicked_skill:
-            chat_api = chatgptapi()
-            prompt = f"What is this skill: {clicked_skill}?"
-            gpt_response = chat_api.gen_response(prompt)
-            skill_description = chat_api.parse_gpt_response(gpt_response) # adjust parsing method if necessary
-            context['skill_description'] = skill_description
-            return render(request, 'dashboard/dashboard.html', context)
-    user_resume = models.Resume.objects.filter(user=request.user).first()
     
+    user_resume = models.Resume.objects.filter(user=request.user).first()
+    context={}
     # Check if the user's resume exists
     if user_resume:
         
@@ -81,7 +71,8 @@ def main_board(request):
             # Parse the GPT-3 response
                 
                 skills = chat_api.parse_gpt_response(gpt_response)
-                
+                for i in range(len(skills)):
+                    skills[i]=skills[i].strip()
                 context['skills']=skills
                 # Return a success message or redirect the user if needed
                 
@@ -146,3 +137,20 @@ def ask(request):
         return render(request, 'dashboard/ask.html')
     else:
         return render(request, 'dashboard/enhance.html', {'message': "Please upload a resume first."})
+@login_required
+def courses(request,skill_name):
+    user_resume = models.Resume.objects.filter(user=request.user).first()
+    print(skill_name)
+    if user_resume:
+
+        chat_api = chatgptapi()
+        prompt="List 2 Entry Level Courses, 2 Intermediate and 2 Advanced Online Course names with their professors or company for the following skill : "+skill_name
+        gpt_response = chat_api.gen_response(prompt)
+        return render(request, 'dashboard/courses.html', {'course': skill_name, 'courses': gpt_response}) 
+            
+                # This will print the value entered in the text input
+
+
+        
+    else:
+        return render(request, 'dashboard/dashboard', {'message': "Please upload a resume first."})

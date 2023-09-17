@@ -45,7 +45,7 @@
         </form>
         {%if skills %}
         {% for skill in skills %}
-        <li>{{ skill }}</li>
+        <a href="{% url "dashboard:courses" skill_name=skill %}"">{{ skill }}</a>
         {% endfor %}
         </ul>
         {% endif %}
