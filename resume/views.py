@@ -59,4 +59,25 @@ def upload_resume(request):
 
     context = {'has_uploaded_resume': has_uploaded_resume, 'form': form}
     return render(request, 'resume/upload_resume.html', context)
+
+@login_required
+def resume_text_input(request):
+    if request.method == "POST":
+        form = ResumeTextInputForm(request.POST)
+        if form.is_valid():
+            text_content = form.cleaned_data['text_content']
+
+            # Check if the user already has a resume
+            try:
+                resume = Resume.objects.get(user=request.user)
+                resume.text_content = text_content
+                resume.save()
+            except Resume.DoesNotExist:
+                Resume.objects.create(user=request.user, text_content=text_content)
+            
+            return redirect('some_view_name')  # Redirect to some view, maybe to see the resume
+    else:
+        form = ResumeTextInputForm()
+
+    return render(request, 'template_name.html', {'form': form})
 # Create your views here.

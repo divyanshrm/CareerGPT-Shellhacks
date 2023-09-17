@@ -15,7 +15,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <title>ProfessionPal</title>
+  <title>CareerGPT</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,21 +33,27 @@
 
   <nav>
 
-    <a class="navbar-brand" href="{% url 'home' %}">ProfessionPal</a>
+    <a class="navbar-brand" href="{% url 'home' %}">CareerGPT</a>
 
     <div>
 
       <div class="navbar">
         {% if user.is_authenticated %}
+        <form method="post" action="{% url 'dashboard:ask' %}">
+          {% csrf_token %}
+          <input type="text" name="ask-me-anything" placeholder="Ask me Anything" required>
+          <button type="submit" name="my_button" value="ButtonValue">Go</button>
+        </form>
 
+        <a href={% url "dashboard:enhance" %}>Enhance</a>
 
-
-        <a href={% url "resume:upload_resume" %}>Resume</a></li>
-        <a href={% url "accounts:logout" %}>Logout</a></li>
+        <a href={% url "dashboard:dashboard" %}>Dashboard</a>
+        <a href={% url "resume:upload_resume" %}>Resume</a>
+        <a href={% url "accounts:logout" %}>Logout</a>
         {% else %}
 
-        <a href={% url "accounts:login" %}>Login</a></li>
-        <a href={% url "accounts:signup" %}>Signup</a></li>
+        <a href={% url "accounts:login" %}>Login</a>
+        <a href={% url "accounts:signup" %}>Signup</a>
         {%endif%}
       </div>
     </div>

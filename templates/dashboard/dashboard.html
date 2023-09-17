@@ -28,10 +28,24 @@
         <input type="submit" value="Submit">
     </form>
     {%if skills %}
-    {% for skill in skills %}
-        <li>{{ skill }}</li>
-    {% endfor %}
+    
+    <form method="post" action="{% url 'dashboard:dashboard' %}" id="skillForm">
+        {% csrf_token %}
+        <input type="hidden" name="clicked_skill" id="hiddenSkillInput">
+        {% for skill in skills %}
+            <li><a href="#" onclick="submitSkillForm('{{ skill }}')">{{ skill }}</a></li>
+        {% endfor %}
+    </form>
+    <script>
+        function submitSkillForm(skill) {
+            document.getElementById("hiddenSkillInput").value = skill;
+            document.getElementById("skillForm").submit();
+        }
+    </script>
     </ul>
+    {% if skill_description %}
+    <p>{{ skill_description }}</p>
+    {% endif %}
     {% endif %}
     {% else %}
     <h2>{{ message }}</h2>

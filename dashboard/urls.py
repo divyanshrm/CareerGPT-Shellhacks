@@ -7,4 +7,6 @@ app_name='dashboard'
 
 urlpatterns = [
     re_path('$',views.main_board,name='dashboard'),
+    re_path('enhance/', views.enhance, name='enhance'),
+    re_path('ask/',views.ask,name='ask'),
 ]
