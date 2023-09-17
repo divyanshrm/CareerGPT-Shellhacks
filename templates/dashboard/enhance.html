@@ -11,6 +11,7 @@
 {% block content %}
 
 <div class="enhance-container">
+    {%if form %}
     <div class="enhance-form">
         <form method="post">
             {% csrf_token %}
@@ -24,6 +25,10 @@
         {% if gpt %}
         {{gpt}}
         {% endif %}
-        {% endblock %}
+        
     </div>
+    {%else%}
+    <h1>{{message}}</h1>
+    {%endif%}
 </div>
+{% endblock %}

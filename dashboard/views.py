@@ -90,7 +90,7 @@ def main_board(request):
         # Handle case if the user has not uploaded a resume yet
         return render(request, 'dashboard/dashboard.html', {'message': "Please upload a resume first."})
     
-
+@login_required
 def enhance(request):
     user_resume = models.Resume.objects.filter(user=request.user).first()
     if user_resume:
@@ -115,7 +115,7 @@ def enhance(request):
         return render(request, 'dashboard/enhance.html', {'form': form})
     else:
         return render(request, 'dashboard/enhance.html', {'message': "Please upload a resume first."})
-
+@login_required
 def ask(request):
     user_resume = models.Resume.objects.filter(user=request.user).first()
     if user_resume:
